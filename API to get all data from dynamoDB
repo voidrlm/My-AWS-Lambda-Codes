@@ -1,0 +1,24 @@
+import boto3
+import json
+def lambda_handler(event, context):
+    dynamodb = boto3.client('dynamodb')
+
+    try:
+        item = dynamodb.scan(TableName="users")
+
+        if item:
+            return {
+                'statusCode': 200,
+                'body': json.dumps(item)
+            }
+        else:
+            return {
+                'statusCode': 404,
+                'body': 'Item not found'
+            }
+
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'body': f'Error: {str(e)}'
+        }
