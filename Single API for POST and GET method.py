@@ -8,3 +8,12 @@ def lambda_handler(event, context):
         return {'body': 'This is a POST request with body: {}'.format(body)}
     else:
         return {'body': 'Unsupported'}
+
+
+#notes
+# Used for identification of post and get methods
+# use request parameter if an post method is invoked
+# eg:
+# {
+#     "ID": "123"
+# }
