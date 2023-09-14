@@ -25,3 +25,7 @@ def lambda_handler(event, context):
             'statusCode': 500,
             'body': f'Error: {str(e)}'
         }
+
+
+# Request
+# {uploaderId:"123"}

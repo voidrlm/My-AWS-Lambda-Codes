@@ -49,3 +49,18 @@ def lambda_handler(event, context):
             'statusCode': 500,
             'body': json.dumps({'message': e})
         }
+    
+
+
+#Request
+#     {
+#     "uploaderId": "cp01",
+#     "images": [
+#         {
+#             "image": "data:image/png;base64,iVBOR..."
+#         },
+#         {
+#             "image": "data:image/png;base64,iVBOR..."
+#         }
+#     ]
+# }
