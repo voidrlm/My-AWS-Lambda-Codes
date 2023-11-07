@@ -1,9 +1,11 @@
 import boto3
 import json
+
+
 def lambda_handler(event, context):
     dynamodb = boto3.client('dynamodb')
-    table_name = 'users'
-    query_value = 'ab'
+    table_name = 'users'  # define table namer here
+    query_value = 'ab'  # define query value here or implement using it from the request body
 
     try:
         response = dynamodb.scan(TableName=table_name)
@@ -15,7 +17,7 @@ def lambda_handler(event, context):
             for attribute_name, attribute_value in item.items():
                 if 'S' in attribute_value and query_value in attribute_value['S']:
                     filtered_items.append(item)
-                    break  
+                    break
         return {
             'statusCode': 200,
             'body': json.dumps(filtered_items)
